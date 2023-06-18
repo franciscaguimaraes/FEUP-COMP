@@ -6,7 +6,7 @@ For this project, you need to install [Java](https://jdk.java.net/), [Gradle](ht
 
 ( name - number - contribution - project grade)
 
-- **Adam Nogueira** - 202007519 - 33% - 
+- **Adam Nogueira** - 202007519 - 33% - 18
 - **Francisca Guimarães** - 202004229 - 33% - 18
 - **Inês Oliveira** - 202103343 - 33% - 18
 

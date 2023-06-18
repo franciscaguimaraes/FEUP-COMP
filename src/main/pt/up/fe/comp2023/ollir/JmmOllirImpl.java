@@ -29,15 +29,19 @@ public class JmmOllirImpl implements JmmOptimization {
     public JmmSemanticsResult optimize(JmmSemanticsResult semanticsResult) {
         if (semanticsResult.getConfig().getOrDefault("optimize", "false").equals("false"))
             return semanticsResult;
+
+        //visit once
         ConstantPropVisitor cpVisitor = new ConstantPropVisitor();
         ConstantFoldVisitor cfVisitor = new ConstantFoldVisitor();
         cpVisitor.visit(semanticsResult.getRootNode(), new HashMap<>());
-        cfVisitor.visit(semanticsResult.getRootNode(), "");
+        cfVisitor.visit(semanticsResult.getRootNode(), null);
+
+        //visit while changed
         while (cpVisitor.changed() || cfVisitor.changed()){
             cpVisitor = new ConstantPropVisitor();
             cfVisitor = new ConstantFoldVisitor();
             cpVisitor.visit(semanticsResult.getRootNode(), new HashMap<>());
-            cfVisitor.visit(semanticsResult.getRootNode(), "");
+            cfVisitor.visit(semanticsResult.getRootNode(), null);
         }
         return semanticsResult;
     }

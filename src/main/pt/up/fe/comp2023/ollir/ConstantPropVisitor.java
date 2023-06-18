@@ -72,7 +72,8 @@ public class ConstantPropVisitor extends AJmmVisitor<HashMap<String, JmmNode>, V
         if(jmmNode.getJmmChild(0).getKind().equals("Integer")
                 || jmmNode.getJmmChild(0).getKind().equals("Boolean")){
             constants.put(jmmNode.get("name"), jmmNode.getJmmChild(0));
-        }
+        } else
+            constants.remove(jmmNode.get("name"));
         return null;
     }
 
