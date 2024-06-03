@@ -1,4 +1,0 @@
-import Sup;
-
-class Simple extends Sup {
-}
